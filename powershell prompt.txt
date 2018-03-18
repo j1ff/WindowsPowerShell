@@ -1,0 +1,19 @@
+function Write-Color($msg, $fg, $bg = $Host.UI.RawUI.BackgroundColor) {
+  Write-Host -Object $msg -ForegroundColor $fg -BackgroundColor $bg -NoNewLine
+  return " "
+}
+
+function Prompt {
+  Write-Color "┌─[" White
+  Write-Color "$(Get-Date -Format HH:mm)" DarkRed
+  Write-Color "]─╼" White
+  Write-Color  " $env:username@$env:computername" Cyan
+  Write-Color "-╾╼" White
+  Write-Color "  $path" DarkYellow
+  Write-Color "╾╼" White
+  Write-Color "$rbattdisp $rbatt" Red
+  Write-Color "$gbattdisp $gbatt" Green
+  Write-Color "$ybattdisp $ybatt" Yellow
+  Write-Color "`n└╼  " White
+  return " "
+}
